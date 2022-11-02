@@ -1,3 +1,14 @@
 body {
-    background-color: purple;
+    background-color: rgba(165, 143, 165, 0.445);
+    max-width: 600px;
+    margin: auto;
+}
+
+p {
+    line-height: 1.5;
+}
+
+article + article {
+    margin-top: 3rem;
+    border-top: 1px solid rgb(112, 112, 112);
 }
