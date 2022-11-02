@@ -8,11 +8,15 @@
     <title>My Blog</title>
 </head>
 <body>
-    <article>
-        <?php foreach($posts as $post): ?>
-            <?php echo $post; ?>
-        <?php endforeach; ?>
-    </article>
-
+    <?php foreach($posts as $post): ?>
+        <article>
+            <h1>
+                <a href="/posts/<?= $post->slug; ?>">
+                    <?= $post->title; ?>
+                </a>
+            </h1>
+            <p><?= $post->body; ?></p>
+        </article>        
+    <?php endforeach; ?>
 </body>
 </html>
