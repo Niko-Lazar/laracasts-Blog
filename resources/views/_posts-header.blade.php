@@ -21,7 +21,7 @@
 
                 @foreach($categories as $category)
 {{--                    {{ isset($currentCategory) && $currentCategory->is($category) ? 'bg-blue-500' : '' }}--}}
-                    <x-dropdown-item href="/categories/{{ $category->slug }}"
+                    <x-dropdown-item href="?category={{ $category->slug }}"
                                      :active="isset($currentCategory) && $currentCategory->is($category)"
                     >{{ ucwords($category->name) }}
                     </x-dropdown-item>
