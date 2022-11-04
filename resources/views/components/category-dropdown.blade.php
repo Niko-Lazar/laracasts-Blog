@@ -14,8 +14,7 @@
     <x-dropdown-item href="/" :active="request()->routeIs('home')">All</x-dropdown-item>
 
     @foreach($categories as $category)
-        {{--                    {{ isset($currentCategory) && $currentCategory->is($category) ? 'bg-blue-500' : '' }}--}}
-        <x-dropdown-item href="?category={{ $category->slug }}"
+        <x-dropdown-item href="?category={{ $category->slug }}&{{ http_build_query(request()->except('category')) }}"
                          :active="isset($currentCategory) && $currentCategory->is($category)"
         >{{ ucwords($category->name) }}
         </x-dropdown-item>
