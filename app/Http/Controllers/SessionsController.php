@@ -18,13 +18,15 @@ class SessionsController extends Controller
             'password' => 'required',
         ]);
 
-        if(auth()->attempt($attributes)) {
-            return redirect('/')->with('success', 'Welcome Back!');
+        if(! auth()->attempt($attributes)) {
+            return back()
+                ->withInput()
+                ->withErrors(['email' => 'Provided credentials do not match']);
         }
 
-        return back()
-            ->withInput()
-            ->withErrors(['email' => 'Provided credentials do not match']);
+        session()->regenerate();
+
+        return redirect('/')->with('success', 'Welcome Back!');
     }
 
     public function destroy()
