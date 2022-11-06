@@ -9,8 +9,6 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
-
     protected $with = ['category', 'author'];
 
     public function scopeFilter($query, $filters)
@@ -31,7 +29,7 @@ class Post extends Model
         $query->when($filters['author'] ?? false, fn($query, $author) =>
         $query->whereHas('author', fn($query) =>
         $query->where('username', $author)
-        )
+            )
         );
     }
 
