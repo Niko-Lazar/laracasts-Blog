@@ -10,7 +10,7 @@ class PostCommentsController extends Controller
     public function store(Post $post)
     {
         request()->validate([
-           'body' => 'required:min:3'
+           'body' => 'required|min:3'
         ]);
 
         $post->comments()->create([
