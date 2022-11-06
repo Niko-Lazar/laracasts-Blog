@@ -14,12 +14,11 @@
                 <x-form.textarea name="body" />
 
                 <x-form.field>
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700"
-                           for="category_id"
-                    >
-                        category
+                    <label
+                        class="block mb-2 uppercase font-bold text-xs text-gray-700"
+                        for="category_id"
+                    >category
                     </label>
-
 
                     <select name="category_id" id="category_id">
                         @foreach(\App\Models\Category::all() as $category)
@@ -28,7 +27,6 @@
                                 {{ old('category_id') == $category->id ? 'selected' : '' }}"
                             >{{ ucwords($category->name) }}</option>
                         @endforeach
-
                     </select>
 
                     <x-form.error name="category" />
