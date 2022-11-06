@@ -11,14 +11,14 @@
             </header>
 
             <div class="mt-6">
-                                    <textarea
-                                        class="w-full text-sm focus:outline-none focus:ring"
-                                        name="body"
-                                        id=""
-                                        rows="5"
-                                        placeholder="Want to share something with others?"
-                                        required
-                                    ></textarea>
+                <textarea
+                    class="w-full text-sm focus:outline-none focus:ring"
+                    name="body"
+                    id=""
+                    rows="5"
+                    placeholder="Want to share something with others?"
+                    required
+                ></textarea>
 
                 @error('body')
                     <span class="text-sm text-red-500">{{ $message }}</span>
@@ -26,7 +26,7 @@
             </div>
 
             <div class="flex justify-end mt-6 border-t border-gray-200 pt-6">
-                <x-submit-button>Post</x-submit-button>
+                <x-form.button>Post</x-form.button>
             </div>
         </form>
     </x-panel>
