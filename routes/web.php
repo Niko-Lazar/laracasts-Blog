@@ -9,14 +9,14 @@ use App\Services\Newsletter;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Validation\ValidationException;
 
-Route::get('/', [PostController::class, 'index'])->name('home');
+Route::GET('/', [PostController::class, 'index'])->name('home');
 
-Route::get('posts/{post:slug}', [PostController::class, 'show']);
+Route::GET('posts/{post:slug}', [PostController::class, 'show']);
 Route::post('posts/{post:slug}/comments', [PostCommentsController::class, 'store']);
 
 Route::POST('newsletter', NewsletterController::class);
 
-Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
+Route::GET('register', [RegisterController::class, 'create'])->middleware('guest');
 Route::POST('register', [RegisterController::class, 'store'])->middleware('guest');
 
 Route::GET('login', [SessionsController::class, 'create'])->middleware('guest');
