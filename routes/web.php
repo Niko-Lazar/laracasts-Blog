@@ -25,11 +25,7 @@ Route::POST('sessions', [SessionsController::class, 'store'])->middleware('guest
 Route::POST('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
 Route::middleware('can:admin')->group(function() {
-    Route::POST('admin/posts', [AdminPostController::class, 'store']);
-    Route::GET('admin/posts/create', [AdminPostController::class, 'create']);
-    Route::GET('admin/posts', [AdminPostController::class, 'index']);
-    Route::GET('admin/posts/{post}/edit', [AdminPostController::class, 'edit']);
-    Route::patch('admin/posts/{post}', [AdminPostController::class, 'update']);
-    Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy']);
+    // full restful resources for admin's page except show
+    Route::resource('admin/posts', AdminPostController::class)->except('show');
 });
 
